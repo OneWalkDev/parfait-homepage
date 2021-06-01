@@ -1,0 +1,241 @@
+html {
+    font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+    font-size: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+html, body {
+    height: 100%;
+}
+
+body{
+}
+
+ol, ul {
+    list-style: none;
+}
+
+button{
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    color: #dddddd;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    position: fixed;
+    top:0;
+    padding: 1px 2% 1px;
+    backface-visibility:hidden;
+
+    width: 100%;
+    background-color: #602d1d;
+    display: flex;
+    align-items: center;
+    letter-spacing: 6px;
+    color: #dddddd;
+}
+
+header a{
+    color: #dddddd;
+    font-size: 30px;
+}
+
+/*メニュー部分*/
+#ham-menu {
+    display: none;
+    background-color: #602d1d; /*メニュー背景色*/
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px 40px; /*メニュー内部上下左右余白*/
+    line-height: 2.0;
+    position: fixed;
+    right: -300px; /*メニュー横幅①と合わせる*/
+    top: 0;
+    transition: transform 0.3s linear 0s; /*0.3s は変化するのにかかる時間*/
+    width: 300px; /*メニュー横幅①*/
+    z-index: 1000;
+}
+
+/*メニューアイコン部分は疑似要素で*/
+#ham-menu::before {
+    background-color: #602d1d; /*ボタン部分背景色*/
+    border-radius: 0 0 0 10px; /*左下角丸*/
+    color: #fff; /*アイコン（フォント）色*/
+    content: "≡"; /*メニューアイコン*/
+    display: block;
+    font-size: 50px; /*アイコン（フォント）サイズ*/
+    height: 50px;
+    line-height: 50px; /*縦位置中央化*/
+    position: absolute;
+    right: 100%;
+    text-align: center;
+    top: 0;
+    width: 50px;
+}
+
+/*透過背景部分*/
+#menu-background {
+    background-color: #333; /*黒背景部分背景色*/
+    display: block;
+    height: 100%;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: all 0.1s linear 0s; /*0.3s は変化するのにかかる時間*/
+    width: 100%;
+    z-index: -1;
+}
+
+/*hover 時の処理*/
+#ham-menu:hover {
+    transform: translate(-300px); /*メニュー横幅①と合わせる*/
+}
+
+#ham-menu:hover + #menu-background {
+    opacity: 0.5; /*黒背景部分透過度*/
+    z-index: 999;
+}
+
+.loading{
+    display: table;
+    width: 100%;
+    height: 100vh;
+}
+
+.loading_img {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    animation: sk-chase 2.5s infinite linear both;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.main{
+    display: none;
+}
+
+.title{
+    background-image: url("../../img/sweets_fruit_pafe.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: contain;
+    display: table;
+    width: 100%;
+    height: 90vh;
+}
+
+.title h1{
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.content,.main_member,.join_contents,.connect_contents {
+    display: none;
+}
+.allContents{
+    margin: 5% 5% auto;
+    padding: 5%;
+    background-color: #fff;
+    text-align: center;
+    line-height: 2.0;
+}
+
+.box_content{
+    border: #5f5f5f 2px solid;
+    margin-bottom: 40px;
+}
+
+.content img{
+    vertical-align: middle;
+    height: auto;
+    width: 100%;
+}
+
+/*スマホ用 */
+@media screen and (min-width:480px) and ( max-width:768px){
+    .box {
+        display: block;
+        margin-block: 10px 10px;
+    }
+
+    .box img{
+        width:auto;
+        height:auto;
+        max-width:100%;
+        max-height:100%;
+    }
+}
+
+/*タブレット、PC用*/
+
+@media screen and (min-width: 768px) {
+
+    .box{
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+
+        flex-flow: row wrap;
+    }
+
+    .box img {
+        width: 550px;
+        height: 310px;
+    }
+}
+
+article {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px #999;
+}
+article figure {
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+}
+article figure img {
+    min-width: 80px;
+    max-width: 80%;
+    vertical-align: top;
+}
+article .twitter{
+    position: relative;
+    z-index: 30;
+}
+.text_content{
+    text-align: left;
+    word-break: break-all;
+}
+
+footer{
+    display:none;
+    text-align: center;
+}
